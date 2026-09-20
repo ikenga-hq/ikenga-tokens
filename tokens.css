@@ -460,17 +460,28 @@
   --tint-ngwa-bg:     hsl(36,22%,92%);   --tint-ngwa-fg:    hsl(28,30%,22%);
 }
 
-/* Active tint vars (resolved per workspace) */
-[data-workspace="app"]      { --tint-bg-active:var(--tint-app-bg);      --tint-fg-active:var(--tint-app-fg); }
-[data-workspace="mail"]     { --tint-bg-active:var(--tint-mail-bg);     --tint-fg-active:var(--tint-mail-fg); }
-[data-workspace="outbox"]   { --tint-bg-active:var(--tint-outbox-bg);   --tint-fg-active:var(--tint-outbox-fg); }
-[data-workspace="studio"]   { --tint-bg-active:var(--tint-studio-bg);   --tint-fg-active:var(--tint-studio-fg); }
-[data-workspace="agents"]   { --tint-bg-active:var(--tint-agents-bg);   --tint-fg-active:var(--tint-agents-fg); }
-[data-workspace="files"]    { --tint-bg-active:var(--tint-files-bg);    --tint-fg-active:var(--tint-files-fg); }
-[data-workspace="sessions"] { --tint-bg-active:var(--tint-sessions-bg); --tint-fg-active:var(--tint-sessions-fg); }
-[data-workspace="settings"] { --tint-bg-active:var(--tint-settings-bg); --tint-fg-active:var(--tint-settings-fg); }
+/* Active tint vars (resolved per workspace).
+ *
+ * These MUST be `:root[data-workspace=…]`, not a bare `[data-workspace=…]`.
+ * The defaults for `--tint-bg-active` / `--tint-fg-active` are declared inside
+ * `:root[data-mode='dark']` and `:root[data-mode='light']` above, which are
+ * (0,2,0); a bare attribute selector is (0,1,0) and loses to them no matter
+ * where it sits in the file. Until this was raised, every workspace painted
+ * the mode default blue and none of the tints below had any effect.
+ *
+ * `data-workspace` is written to <html> alongside `data-mode` (the shell's
+ * theme-store is its only writer), so matching on `:root` is correct — and it
+ * is what the mode rules already do. */
+:root[data-workspace="app"]      { --tint-bg-active:var(--tint-app-bg);      --tint-fg-active:var(--tint-app-fg); }
+:root[data-workspace="mail"]     { --tint-bg-active:var(--tint-mail-bg);     --tint-fg-active:var(--tint-mail-fg); }
+:root[data-workspace="outbox"]   { --tint-bg-active:var(--tint-outbox-bg);   --tint-fg-active:var(--tint-outbox-fg); }
+:root[data-workspace="studio"]   { --tint-bg-active:var(--tint-studio-bg);   --tint-fg-active:var(--tint-studio-fg); }
+:root[data-workspace="agents"]   { --tint-bg-active:var(--tint-agents-bg);   --tint-fg-active:var(--tint-agents-fg); }
+:root[data-workspace="files"]    { --tint-bg-active:var(--tint-files-bg);    --tint-fg-active:var(--tint-files-fg); }
+:root[data-workspace="sessions"] { --tint-bg-active:var(--tint-sessions-bg); --tint-fg-active:var(--tint-sessions-fg); }
+:root[data-workspace="settings"] { --tint-bg-active:var(--tint-settings-bg); --tint-fg-active:var(--tint-settings-fg); }
 
 /* New rail nouns (WP-03 sets data-workspace to these). */
-[data-workspace="project"] { --tint-bg-active:var(--tint-project-bg); --tint-fg-active:var(--tint-project-fg); }
-[data-workspace="chi"]     { --tint-bg-active:var(--tint-chi-bg);     --tint-fg-active:var(--tint-chi-fg); }
-[data-workspace="ngwa"]    { --tint-bg-active:var(--tint-ngwa-bg);    --tint-fg-active:var(--tint-ngwa-fg); }
+:root[data-workspace="project"] { --tint-bg-active:var(--tint-project-bg); --tint-fg-active:var(--tint-project-fg); }
+:root[data-workspace="chi"]     { --tint-bg-active:var(--tint-chi-bg);     --tint-fg-active:var(--tint-chi-fg); }
+:root[data-workspace="ngwa"]    { --tint-bg-active:var(--tint-ngwa-bg);    --tint-fg-active:var(--tint-ngwa-fg); }
