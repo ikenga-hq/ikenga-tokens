@@ -419,7 +419,9 @@
   --shadow-4: 0 24px 48px -16px rgba(20,28,32,.18);
 }
 
-/* === Workspace tints — constant hues, mode-adaptive ============= */
+/* === Workspace tints — constant hues, mode-adaptive =============
+   New rail nouns (WP-01/WP-03): --tint-project-*, --tint-chi-*,
+   --tint-ngwa-* borrow the `files` / `agents` / `app` values below. */
 [data-mode="dark"] {
   --tint-app-bg:      hsl(36,14%,11%);   --tint-app-fg:      hsl(36,28%,78%);
   --tint-mail-bg:     hsl(42,30%,11%);   --tint-mail-fg:     hsl(42,70%,62%);
@@ -429,6 +431,15 @@
   --tint-files-bg:    hsl(28,14%,11%);   --tint-files-fg:    hsl(28,30%,60%);
   --tint-sessions-bg: hsl(28,28%,11%);   --tint-sessions-fg: hsl(28,60%,62%);
   --tint-settings-bg: hsl(220,14%,11%);  --tint-settings-fg: hsl(220,26%,66%);
+
+  /* New rail nouns (WP-01/WP-03). Same values, new names — old names stay
+     for pkgs that still key on them (`app`/`agents`/`files`). */
+  /* --tint-project-* borrows `files` above. */
+  --tint-project-bg:  hsl(28,14%,11%);   --tint-project-fg: hsl(28,30%,60%);
+  /* --tint-chi-* borrows `agents` above. */
+  --tint-chi-bg:      hsl(170,26%,10%);  --tint-chi-fg:     hsl(170,40%,58%);
+  /* --tint-ngwa-* borrows `app` above. */
+  --tint-ngwa-bg:     hsl(36,14%,11%);   --tint-ngwa-fg:    hsl(36,28%,78%);
 }
 [data-mode="light"] {
   --tint-app-bg:      hsl(36,22%,92%);   --tint-app-fg:      hsl(28,30%,22%);
@@ -439,6 +450,14 @@
   --tint-files-bg:    hsl(36,26%,92%);   --tint-files-fg:    hsl(28,30%,22%);
   --tint-sessions-bg: hsl(28,50%,92%);   --tint-sessions-fg: hsl(14,60%,30%);
   --tint-settings-bg: hsl(220,22%,93%);  --tint-settings-fg: hsl(220,30%,24%);
+
+  /* New rail nouns (WP-01/WP-03): same borrow mapping as the dark block. */
+  /* --tint-project-* borrows `files` above. */
+  --tint-project-bg:  hsl(36,26%,92%);   --tint-project-fg: hsl(28,30%,22%);
+  /* --tint-chi-* borrows `agents` above. */
+  --tint-chi-bg:      hsl(170,36%,92%);  --tint-chi-fg:     hsl(170,50%,24%);
+  /* --tint-ngwa-* borrows `app` above. */
+  --tint-ngwa-bg:     hsl(36,22%,92%);   --tint-ngwa-fg:    hsl(28,30%,22%);
 }
 
 /* Active tint vars (resolved per workspace) */
@@ -450,3 +469,8 @@
 [data-workspace="files"]    { --tint-bg-active:var(--tint-files-bg);    --tint-fg-active:var(--tint-files-fg); }
 [data-workspace="sessions"] { --tint-bg-active:var(--tint-sessions-bg); --tint-fg-active:var(--tint-sessions-fg); }
 [data-workspace="settings"] { --tint-bg-active:var(--tint-settings-bg); --tint-fg-active:var(--tint-settings-fg); }
+
+/* New rail nouns (WP-03 sets data-workspace to these). */
+[data-workspace="project"] { --tint-bg-active:var(--tint-project-bg); --tint-fg-active:var(--tint-project-fg); }
+[data-workspace="chi"]     { --tint-bg-active:var(--tint-chi-bg);     --tint-fg-active:var(--tint-chi-fg); }
+[data-workspace="ngwa"]    { --tint-bg-active:var(--tint-ngwa-bg);    --tint-fg-active:var(--tint-ngwa-fg); }
