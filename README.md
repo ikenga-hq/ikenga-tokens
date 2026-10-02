@@ -1,6 +1,6 @@
 # @ikenga/tokens
 
-[![Version](https://img.shields.io/badge/version-v0.0.0-blue.svg)](https://github.com/ikenga-hq/ikenga-tokens/releases)
+[![Version](https://img.shields.io/badge/version-v0.5.1-blue.svg)](https://github.com/ikenga-hq/ikenga-tokens/releases)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 > Canonical design tokens for Ikenga — one source of truth for the CSS custom properties
